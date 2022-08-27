@@ -1,3 +1,5 @@
+import 'package:clean_architecture_app/src/core/shared_widgets/error_card.dart';
+import 'package:clean_architecture_app/src/core/utils/app_colors/app_colors.dart';
 import 'package:clean_architecture_app/src/core/utils/app_strings.dart';
 import 'package:clean_architecture_app/src/features/random_quote/presentation/cubit/random_quote_cubit.dart';
 import 'package:clean_architecture_app/src/features/random_quote/presentation/cubit/random_quote_state.dart';
@@ -15,9 +17,16 @@ class QuoteScreen extends StatelessWidget {
       builder: (context, state) {
         RandomQuoteCubit myCubit = RandomQuoteCubit.get(context);
         if (state is RandomQuoteIsLoading) {
-          return const CircularProgressIndicator();
+          return Scaffold(
+            body: Center(
+                child: CircularProgressIndicator(
+              color: AppColors.kPrimaryColor,
+            )),
+          );
         } else if (state is RandomQuoteHaveError) {
-          return Text(state.errorMsg);
+          return const Scaffold(
+            body: ErrorCard(),
+          );
         } else if (state is RandomQuoteIsLoaded) {
           return Scaffold(
             appBar: AppBar(

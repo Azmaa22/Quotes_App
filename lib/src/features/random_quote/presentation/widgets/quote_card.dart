@@ -14,7 +14,7 @@ class QuoteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: context.width,
-      height: context.height * 0.2,
+      height: context.height * 0.4,
       margin: const EdgeInsets.all(
         10.0,
       ),
@@ -41,7 +41,7 @@ class QuoteCard extends StatelessWidget {
         children: [
           Text(
             quote.quoteContent,
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headline5,
           ),
           const Spacer(),
           Text(

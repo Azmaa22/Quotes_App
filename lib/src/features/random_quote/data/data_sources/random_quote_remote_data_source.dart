@@ -14,10 +14,11 @@ class RandomQuoteRemoteDataSourceImplementation
   RandomQuoteRemoteDataSourceImplementation({required this.client});
   @override
   Future<QuoteModel> getRandomQuote() async {
-    final response =
-        await client.get(Uri.parse(EndPoints.randomQuote), headers: {
-      'content-type': 'application/json',
-    });
+    final response = await client.get(
+        Uri.parse('http://quotes.stormconsultancy.co.uk/random.json'),
+        headers: {
+          'content-type': 'application/json',
+        });
     if (response.statusCode == 200) {
       return QuoteModel.fromJson(
         json.decode(response.body),

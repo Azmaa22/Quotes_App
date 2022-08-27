@@ -6,6 +6,9 @@ ThemeData appTheme() {
   return ThemeData(
     fontFamily: AppStrings.fontFamily,
     primaryColor: AppColors.kPrimaryColor,
+    iconTheme: IconThemeData(
+      color: AppColors.kPrimaryColor,
+    ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.kPrimaryColor,
       centerTitle: true,

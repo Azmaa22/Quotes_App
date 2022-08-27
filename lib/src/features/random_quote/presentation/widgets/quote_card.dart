@@ -1,13 +1,13 @@
 import 'package:clean_architecture_app/src/core/utils/app_colors/app_colors.dart';
 import 'package:clean_architecture_app/src/core/utils/media_query_values.dart';
+import 'package:clean_architecture_app/src/features/random_quote/domain/entities/quote.dart';
 import 'package:flutter/material.dart';
 
 class QuoteCard extends StatelessWidget {
-  final String quote, author;
+  final Quote quote;
   const QuoteCard({
     Key? key,
     required this.quote,
-    required this.author,
   }) : super(key: key);
 
   @override
@@ -40,12 +40,12 @@ class QuoteCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            quote,
+            quote.quoteContent,
             style: Theme.of(context).textTheme.headline4,
           ),
           const Spacer(),
           Text(
-            author,
+            quote.author,
             style: Theme.of(context).textTheme.headline5!.copyWith(
                   color: AppColors.kPrimaryColor,
                 ),
